@@ -108,7 +108,7 @@ def track_prices(service, flipkart_url, amazon_url, rd_url):
 
         send_email(service, 'example@gmail.com', 'Price Alert!', body)
     else:
-        print("❌ Could not fetch all prices. Skipping alert.")
+        print("Could not fetch all prices. Skipping alert.")
 
 if __name__ == '__main__':
     service = gmail_authenticate()
@@ -117,6 +117,6 @@ if __name__ == '__main__':
     try:
         while True:
             track_prices(service, flipkart_url, amazon_url, rd_url)
-            time.sleep(43200)  # 12 hours
+            time.sleep(43200) 
     except KeyboardInterrupt:
         print("\nStopped by user.")
