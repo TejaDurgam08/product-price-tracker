@@ -70,7 +70,7 @@ def send_email(service, to_email, subject, body):
     raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
     message = {'raw': raw_message}
     send_message = service.users().messages().send(userId="me", body=message).execute()
-    print(f"✅ Email sent. Message Id: {send_message['id']}")
+    print(f"Email sent. Message Id: {send_message['id']}")
 
 def track_prices(service, flipkart_url, amazon_url, rd_url):
     headers = {
@@ -83,7 +83,7 @@ def track_prices(service, flipkart_url, amazon_url, rd_url):
         amazonResponse = requests.get(amazon_url, headers=headers)
         RDResponse = requests.get(rd_url, headers=headers)
     except Exception as e:
-        print(f"❌ Error fetching product pages: {e}")
+        print(f"Error fetching product pages: {e}")
         return
 
     flipkartSoup = BeautifulSoup(flipkartResponse.content, 'html5lib')
@@ -106,7 +106,7 @@ def track_prices(service, flipkart_url, amazon_url, rd_url):
         else:
             body = f"Reliance Digital price is lowest: ₹{RDProductPrice}"
 
-        send_email(service, 'tejadurgam04@gmail.com', 'Price Alert!', body)
+        send_email(service, 'example@gmail.com', 'Price Alert!', body)
     else:
         print("❌ Could not fetch all prices. Skipping alert.")
 
