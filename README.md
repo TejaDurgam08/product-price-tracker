@@ -24,7 +24,9 @@ Python, Requests, BeautifulSoup, Gmail API
 
 3. Add your `credentials.json` (Google OAuth 2.0 file) to the folder.
 
-4. Run the script: python tracker.py
+4. Replace the example@gmail.com with the recipient email
+
+5. Run the script: python tracker.py
 
 
 ## License
